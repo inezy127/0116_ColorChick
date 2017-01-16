@@ -10,7 +10,7 @@ AudioSample song1, song3, song4, song6, song5, song2,song8;
 AudioPlayer song7;
 
 import processing.video.*;
-int openingCount=300;
+int openingCount=420;
 int movieCount=120;
 
 PImage main1;
@@ -21,8 +21,9 @@ PImage onePic,twoPic,threePic,goPic;
 PImage playerPic, blockPic;
 PImage lose1,lose2;
 PImage washBack;
-
-Movie opening;
+PImage countClock, countClockBonus;
+Movie story;
+Movie start;
 Movie intoBall;
 Movie redMoive;
 Movie orangeMovie;
@@ -90,7 +91,7 @@ boolean correctcolor(){
 //levelState
 final int LEVEL_OPENING=0;
 final int LEVEL_STORY_MOVIE=1;
-final int LEVEL_INTOBALL_MOVIE =2;
+final int LEVEL_START_MOVIE =2;
 final int GAME_PRESS_START=3;
 
 final int LEVEL_RED=4;
@@ -132,7 +133,8 @@ void setup(){
   song8 = minim.loadSample("playsound/block2.mp3");
   
   //movie set
-  opening = new Movie(this,"Opening.mp4");
+  story = new Movie(this,"story.mov");
+  start = new Movie(this,"start.mov");
   redMoive = new Movie(this, "Red.mp4");
   orangeMovie = new Movie(this, "Orange.mp4");
   yellowMovie = new Movie(this, "Yellow.mp4");
@@ -154,6 +156,8 @@ void setup(){
   lose1 = loadImage("img/lose1.png");
   lose2 = loadImage("img/lose2.png");
   washBack = loadImage("img/washback.png");
+  countClock = loadImage("img/count.png");
+  countClockBonus =loadImage("img/bonuscount.png.png");
   
   //initial variable
   for(int i=0; i<attackBall.length; i++){
@@ -192,22 +196,22 @@ void draw(){
   
   //click to start
   case LEVEL_STORY_MOVIE:
-  opening.play();
-  image(opening,0,0,640,480);
-  if( openingCount== 300){openingCount --;}
-  if(openingCount <300){openingCount --;}
+  story.play();
+  image(story,0,0,640,480);
+  if( openingCount== 420){openingCount --;}
+  if(openingCount <420){openingCount --;}
   if(openingCount<0){
-    openingCount = 300;
-    levelState = LEVEL_INTOBALL_MOVIE;    
+    openingCount = 420;
+    levelState = LEVEL_START_MOVIE;    
   }
   break;
   
-  //chicken into ball
-  case LEVEL_INTOBALL_MOVIE:
-  intoBall.play();
-  image(intoBall,0,0,640,480);
-  if(mouseX>320-100 &&mouseX<320+100 && mouseY>240-100 &&mouseY <240+100 && mousePressed){
-       openingCount = 300; 
+  //chicken let's go save our frineds
+  case LEVEL_START_MOVIE:
+  start.play();
+  image(start,0,0,640,480);
+  if(mousePressed){
+       openingCount = 420; 
        levelState = LEVEL_RED;
        levelOneSet();
   }

@@ -31,10 +31,11 @@ class Level{
     //textSize(20);
     //text("Level"+levelNum,12,40);
     //ball text
-    fill(150,150,150);
+    image(countClock,15,35,65,55);
+    fill(205,85,25);
     textSize(14);
     if(gameStart.isEnded()){
-      text(int(gameCount.remaining()), 14,60);
+      text(int(gameCount.remaining()), 28,60);
     }
     
     //start line
