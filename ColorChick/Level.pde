@@ -32,6 +32,7 @@ class Level{
     //text("Level"+levelNum,12,40);
     //ball text
     image(countClock,15,35,65,55);
+    
     fill(205,85,25);
     textSize(14);
     if(gameStart.isEnded()){

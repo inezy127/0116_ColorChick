@@ -4,6 +4,13 @@
 // 待加音效：倒數3/2/1、倒數go!、場中倒數聲？
 // 待加提示：遊戲介紹、剩餘10秒下場加3秒
 
+//update by fanyutin 2017/1/17 00:20
+//給rebecca的一些註解：辛苦你了~~~~~~~~~~
+//1.restart： chaos圖片不知怎倒數＝＝超weird
+//2.有一個圖放的是countClockBonus (第30行)，有在想說要不要"有加3秒的時候"load進不一樣的圖，但不清楚要放個關卡，還是直接level改，（在level裡面的第34行）
+
+
+
 import ddf.minim.*;
 Minim minim;
 AudioSample song1, song3, song4, song6, song5, song2,song8;
@@ -12,6 +19,7 @@ AudioPlayer song7;
 import processing.video.*;
 int openingCount=420;
 int movieCount=120;
+int restartCount=60;
 
 PImage main1;
 PImage main2;
@@ -22,6 +30,8 @@ PImage playerPic, blockPic;
 PImage lose1,lose2;
 PImage washBack;
 PImage countClock, countClockBonus;
+PImage chaos;
+
 Movie story;
 Movie start;
 Movie intoBall;
@@ -155,9 +165,10 @@ void setup(){
   blockPic = loadImage("img/block.png");
   lose1 = loadImage("img/lose1.png");
   lose2 = loadImage("img/lose2.png");
+  chaos = loadImage("img/chaos.png");
   washBack = loadImage("img/washback.png");
   countClock = loadImage("img/count.png");
-  countClockBonus =loadImage("img/bonuscount.png.png");
+  countClockBonus =loadImage("img/bonuscount.png");
   
   //initial variable
   for(int i=0; i<attackBall.length; i++){
@@ -408,34 +419,40 @@ void draw(){
   break;
   
   case LEVEL_RESTART:
+    //image(chaos,0,0,width,height);// having no idea how to make it diappear  =_= 
     image(lose1,0,0,width,height);
-    if(mouseX<413 && mouseX>232 && mouseY<276 && mouseY>229){
-      image(lose2,0,0,width,height);
-      if(mousePressed){
-        switch(recentLevel){
-          case LEVEL_RED:
-            levelOneSet();
-            break;
-          case LEVEL_ORANGE:
-            levelTwoSet();
-            break;
-          case LEVEL_YELLOW:
-            levelThreeSet();
-            break;
-          case LEVEL_GREEN:
-            levelFourSet();
-            break;
-          case LEVEL_BLUE:
-            levelFiveSet();
-            break;
-          case LEVEL_PURPLE:
-            levelSixSet();
-            break;
+      if(mouseX<413 && mouseX>232 && mouseY<276 && mouseY>229){
+        image(lose2,0,0,width,height);
+        if(mousePressed){
+          switch(recentLevel){
+            case LEVEL_RED:
+              levelOneSet();
+              break;
+            case LEVEL_ORANGE:
+              levelTwoSet();
+              break;
+            case LEVEL_YELLOW:
+              levelThreeSet();
+              break;
+            case LEVEL_GREEN:
+              levelFourSet();
+              break;
+            case LEVEL_BLUE:
+              levelFiveSet();
+              break;
+            case LEVEL_PURPLE:
+              levelSixSet();
+              break;
+          }
+          song1.trigger();
+          levelState = recentLevel;
+          restartCount = 60;
         }
-        song1.trigger();
-        levelState = recentLevel;
       }
-    }
+    
+      
+      
+  
 }
   
   
