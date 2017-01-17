@@ -3,14 +3,16 @@ void levelFourSet(){
   initLevel(30,6,4,yellow);
   
   //washBall
-  wash[0] = new WashBack(200,200);
-  wash[1] = new WashBack(400,400);
+  wash[0] = new WashBack(230,200);
+  wash[1] = new WashBack(400,450);
   
   //timer
   if(gameCount.remaining()>=10){
     gameCount.setTime(29);
+    bounusTime = true;
   }else{
     gameCount.setTime(26);
+    bounusTime = false;
   }
   gameStart.start();
   gameCount.start();
@@ -52,7 +54,10 @@ void levelFourDraw(){
   
   //attackBall
   if(gameStart.isEnded()){
-    if(attackTimer.arrived()) attackNum++;
+    if(attackTimer.arrived()){
+      song2.trigger();
+      attackNum ++;
+    }    
   }
   for(int i=0;i<attackNum;i++){
     attackBall[i].fillTheColor(attack);

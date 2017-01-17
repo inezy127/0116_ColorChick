@@ -4,14 +4,16 @@ void levelFiveSet(){
   initLevel(15,5,5,blue2);
   
   //washBall
-  wash[0] = new WashBack(200,200);
-  wash[1] = new WashBack(400,400);
+  wash[0] = new WashBack(230,150);
+  wash[1] = new WashBack(150,400);
   
   //timer
   if(gameCount.remaining()>=10){
     gameCount.setTime(29);
+    bounusTime = true;
   }else{
     gameCount.setTime(26);
+    bounusTime = false;
   }
   gameStart.start();
   gameCount.start();
@@ -75,7 +77,10 @@ void levelFiveDraw(){
   
   //attackBall
   if(gameStart.isEnded()){
-    if(attackTimer.arrived()) attackNum++;
+    if(attackTimer.arrived()){
+      song2.trigger();
+      attackNum ++;
+    }    
   }
   for(int i=0;i<attackNum;i++){
     attackBall[i].fillTheColor(attack);

@@ -5,14 +5,16 @@ void levelSixSet(){
   initLevel(30,8,5,pink); 
 
   //washBall
-  wash[0] = new WashBack(200,200);
-  wash[1] = new WashBack(400,400);  
+  wash[0] = new WashBack(150,200);
+  wash[1] = new WashBack(320,400);  
   
   //timer
   if(gameCount.remaining()>=10){
     gameCount.setTime(29);
+    bounusTime = true;
   }else{
     gameCount.setTime(26);
+    bounusTime = false;
   }
   gameStart.start();
   gameCount.start();

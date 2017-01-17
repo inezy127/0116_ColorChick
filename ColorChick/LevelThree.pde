@@ -4,14 +4,16 @@ void levelThreeSet(){
   initLevel(20,3,5,yellow);
   
   //washBall
-  wash[0] = new WashBack(200,200);
-  wash[1] = new WashBack(400,400);
+  wash[0] = new WashBack(230,150);
+  wash[1] = new WashBack(400,300);
   
   //timer
   if(gameCount.remaining()>=10){
     gameCount.setTime(29);
+    bounusTime = true;
   }else{
     gameCount.setTime(26);
+    bounusTime = false;
   }
   gameStart.start();
   gameCount.start();

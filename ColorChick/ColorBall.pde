@@ -16,6 +16,7 @@ class ColorBall extends Ball{
     if(threshold != 30) return false;
     float distance = dist(x,y,target.x,target.y);
     if(distance<=(size+target.size)/2){
+      song5.trigger();
       ratio = ratio * transformRatio;
       if(ratio == minRatio){
         if(colorIndex<totalBall){

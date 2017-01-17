@@ -55,10 +55,7 @@ class Player{
     b = (b+target.b)/2;
   }
   
-
-  
-  int playerTouch = 120;
-  
+  int playerTouch = 120;  
   boolean OnCollision(ColorBall target){
     if(playerTouch != 120) return false;
     float distance = dist(x,y,target.x,target.y);
@@ -80,6 +77,7 @@ class Player{
   void washBack(WashBack target){
     float distance = dist(x,y,target.x,target.y);
     if(distance <= (size+target.size)/2){
+      song4.trigger();
       r = initR;
       g = initG;
       b = initB;
