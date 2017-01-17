@@ -270,9 +270,6 @@ void draw() {
       player.y=240;
       levelState=LEVEL_ORANGE_MOVIE;
     }
-    //if(restart()){
-    //  levelTwoSet();
-    //}
     break;
 
   case LEVEL_ORANGE_MOVIE:
@@ -305,9 +302,6 @@ void draw() {
       player.y=240;
       levelState=LEVEL_YELLOW_MOVIE;
     }     
-    //if(restart()){
-    //  levelThreeSet();
-    //}
     break;
 
   case LEVEL_YELLOW_MOVIE:

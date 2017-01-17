@@ -1,3 +1,5 @@
+//LEVEL CLASS AND INITIAL LEVEL FUNCTION
+
 class Level {
   int r, g, b;
 
@@ -23,10 +25,10 @@ class Level {
     rect(width-BAR_SIZE, 0, BAR_SIZE, height);
     fill(15, 15, 15);
 
-    if(bounusTime == false){
+    if (bounusTime == false) {
       image(countClock, 15, 35, 65, 55);
-    }else{
-      image(countClockBonus,15,35,65,55);
+    } else {
+      image(countClockBonus, 15, 35, 65, 55);
     }
 
     fill(205, 85, 25);
@@ -66,4 +68,16 @@ class Level {
       image(goPic, 0, 0, width, height);
     }
   }
+}
+
+//放在每一關的set Function裡面，跑一些制式的東西（ex.各球顏色）
+void initLevel(int sum, int target, int nowOn, int Color) {
+  totalBall = sum;
+  targetBall = target;
+  onField = nowOn;
+  targetColor = Color;
+  colorIndex = onField;
+
+  //generat the ball color list
+  generateBallIndex(totalBall, targetBall, onField, targetColor);
 }

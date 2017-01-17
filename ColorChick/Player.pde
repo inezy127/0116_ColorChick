@@ -1,3 +1,5 @@
+//PLAYER CLASS
+
 class Player{
   float x,y;
   float speed;
