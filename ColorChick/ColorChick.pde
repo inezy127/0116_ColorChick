@@ -1,11 +1,9 @@
-// this is main one by rebecca
-// update by rebecca 2017/1/16 20:22
-// 目前音效：player吃球、player撞到阻擋球、過關、結尾、按下按鈕
-// 待加音效：倒數3/2/1、倒數go!、場中倒數聲？
-
-
+//update by rebecca 2017/1/16 20:22
 //update by fanyutin 2017/1/17 00:20
-//給rebecca的一些註解：辛苦你了~~~~~~~~~~
+//update by rebecca 2017/1/17/16:43
+//新增部分：- 音效：player撞擊彩球、player撞擊阻擋灰球、攻擊灰球生成、攻擊灰撞擊彩球、過關音樂、結局音樂、倒數GO音樂
+//        - 遊戲：場上洗色球、player撞擊灰球回到終點線前、攻擊灰球每五秒生成一顆、彩球數極大化、倒數20秒、10秒內過關下一關增加3秒
+//        - 美術：開頭動畫更新、失敗結局圖、reatart圖、倒數時間外框（一般與bonus版本）
 
 
 import ddf.minim.*;
